@@ -1,4 +1,4 @@
-""""最小二乘法得到多项式函数拟合数据点"""
+""""最小二乘法得到多项式函数线性回归"""
 import numpy as np
 import scipy as sp
 from scipy.optimize import leastsq
