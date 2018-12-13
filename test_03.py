@@ -85,10 +85,10 @@ class KNN(object):
         print(count_pairs)
         # 把count_pairs排序，找到出现次数最多的，就把xx分到这个类
         # TODO
-        # max_count = sorted(count_pairs,key=lambda x:x)[-1]
-        r = sorted(count_pairs.items())
-        print(r)
-        max_count = r[-1]
+        max_count = sorted(count_pairs,key=lambda x:x)[-1]
+        # r = sorted(count_pairs.items())
+        # print(r)
+        # max_count = r[-1]
         return max_count
 
     # 计算正确率
@@ -136,7 +136,7 @@ if __name__ == "__main__":
     x_train,x_test,y_train,y_test = train_test_split(x,y,test_size=0.2)
 
     clf = KNN(x_train,y_train)
-    # clf.score(x_test,y_test)
+    clf.score(x_test,y_test)
 
     # 对新来的样本点进行预测
     test_point = [5.3,3.2]
