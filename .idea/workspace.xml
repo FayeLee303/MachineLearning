@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c998121c-cabb-406f-9518-95bc52bb73d3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_05.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_05.py" afterDir="false" />
-    </list>
+    <list default="true" id="c998121c-cabb-406f-9518-95bc52bb73d3" name="Default Changelist" comment="" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,13 +53,13 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="1" />
-          <entry key="py" value="11625" />
+          <entry key="py" value="11791" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="11625" />
+          <entry key="Python" value="11791" />
         </counts>
       </usages-collector>
     </session>
@@ -72,12 +69,12 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test_05.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="88" column="58" lean-forward="true" selection-start-line="88" selection-start-column="58" selection-end-line="88" selection-end-column="58" />
+            <state relative-caret-position="227">
+              <caret line="101" column="19" selection-start-line="101" selection-start-column="19" selection-end-line="101" selection-end-column="19" />
               <folding>
                 <element signature="e#12#30#0" expanded="true" />
-                <marker date="1545228526334" expanded="true" signature="247:252" ph="..." />
-                <marker date="1545228526334" expanded="true" signature="660:2674" ph="..." />
+                <marker date="1545228722142" expanded="true" signature="378:383" ph="..." />
+                <marker date="1545228722142" expanded="true" signature="791:2805" ph="..." />
               </folding>
             </state>
           </provider>
@@ -113,8 +110,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="367" />
-    <option name="y" value="103" />
+    <option name="x" value="567" />
+    <option name="y" value="147" />
     <option name="width" value="1158" />
     <option name="height" value="797" />
   </component>
@@ -328,12 +325,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test_05.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="88" column="58" lean-forward="true" selection-start-line="88" selection-start-column="58" selection-end-line="88" selection-end-column="58" />
+        <state relative-caret-position="227">
+          <caret line="101" column="19" selection-start-line="101" selection-start-column="19" selection-end-line="101" selection-end-column="19" />
           <folding>
             <element signature="e#12#30#0" expanded="true" />
-            <marker date="1545228526334" expanded="true" signature="247:252" ph="..." />
-            <marker date="1545228526334" expanded="true" signature="660:2674" ph="..." />
+            <marker date="1545228722142" expanded="true" signature="378:383" ph="..." />
+            <marker date="1545228722142" expanded="true" signature="791:2805" ph="..." />
           </folding>
         </state>
       </provider>
