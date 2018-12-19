@@ -2,9 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c998121c-cabb-406f-9518-95bc52bb73d3" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/MachineLearning.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/MachineLearning.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_03.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_03.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test_04.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_04.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test_05.py" beforeDir="false" afterPath="$PROJECT_DIR$/test_05.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,68 +15,71 @@
   </component>
   <component name="CoverageDataManager">
     <SUITE FILE_PATH="coverage/MachineLearning$test_03.coverage" NAME="test_03 Coverage Results" MODIFIED="1544614423522" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MachineLearning$test_05.coverage" NAME="test_05 Coverage Results" MODIFIED="1545126203738" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MachineLearning$test_01.coverage" NAME="test_01 Coverage Results" MODIFIED="1544370102221" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
   </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-955122304">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
+          <entry key="project.closed" value="5" />
+          <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="1" />
-          <entry key="project.opened" value="1" />
+          <entry key="project.open.time.3" value="1" />
+          <entry key="project.open.time.4" value="1" />
+          <entry key="project.open.time.5" value="2" />
+          <entry key="project.opened" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="py" value="4" />
+          <entry key="py" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="Python" value="4" />
+          <entry key="Python" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="1" />
-          <entry key="py" value="9170" />
+          <entry key="py" value="9934" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="9170" />
+          <entry key="Python" value="9934" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
       <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test_04.py">
+        <entry file="file://$PROJECT_DIR$/test_05.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="407">
-              <caret line="169" column="16" selection-start-line="169" selection-start-column="16" selection-end-line="169" selection-end-column="16" />
+            <state relative-caret-position="227">
+              <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
               <folding>
-                <element signature="e#14#32#0" expanded="true" />
-                <marker date="1544634034046" expanded="true" signature="717:722" ph="..." />
-                <marker date="1544634034046" expanded="true" signature="922:927" ph="..." />
-                <marker date="1544634034046" expanded="false" signature="2101:2784" ph="..." />
-                <marker date="1544634034046" expanded="true" signature="4229:5839" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test_03.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="246">
-              <caret line="137" column="30" selection-start-line="137" selection-start-column="30" selection-end-line="137" selection-end-column="30" />
-              <folding>
-                <element signature="e#15#26#0" expanded="true" />
-                <element signature="e#2471#2477#0" />
-                <marker date="1544614423515" expanded="true" signature="438:443" ph="..." />
-                <marker date="1544614423515" expanded="true" signature="851:2977" ph="..." />
+                <element signature="e#12#30#0" expanded="true" />
+                <marker date="1545126420941" expanded="true" signature="247:252" ph="..." />
+                <marker date="1545126420941" expanded="true" signature="660:672" ph="..." />
               </folding>
             </state>
           </provider>
@@ -100,6 +104,7 @@
         <option value="$PROJECT_DIR$/test_02.py" />
         <option value="$PROJECT_DIR$/test_03.py" />
         <option value="$PROJECT_DIR$/test_04.py" />
+        <option value="$PROJECT_DIR$/test_05.py" />
       </list>
     </option>
   </component>
@@ -110,10 +115,10 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="244" />
-    <option name="y" value="38" />
+    <option name="x" value="660" />
+    <option name="y" value="129" />
     <option name="width" value="1158" />
-    <option name="height" value="804" />
+    <option name="height" value="797" />
   </component>
   <component name="ProjectView">
     <navigator proportions="" version="1">
@@ -153,7 +158,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.test_03">
+  <component name="RunManager" selected="Python.test_05">
     <configuration name="test_01" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="MachineLearning" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -198,12 +203,36 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
+    <configuration name="test_05" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="MachineLearning" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/test_05.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Python.test_01" />
       <item itemvalue="Python.test_03" />
+      <item itemvalue="Python.test_05" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test_05" />
         <item itemvalue="Python.test_03" />
         <item itemvalue="Python.test_01" />
       </list>
@@ -237,30 +266,30 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="244" y="38" width="1158" height="804" extended-state="0" />
+    <frame x="660" y="129" width="1158" height="797" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" weight="0.24916944" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.24864376" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32944608" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.22366522" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.22299169" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" weight="0.32944608" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32825485" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32944608" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32825485" />
       <window_info anchor="bottom" id="Database Changes" order="9" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
-      <window_info anchor="bottom" id="Terminal" order="11" />
+      <window_info anchor="bottom" id="Terminal" order="11" weight="0.32963988" />
       <window_info anchor="bottom" id="Python Console" order="12" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" auto_hide="true" id="SciView" order="3" show_stripe_button="false" type="FLOATING" weight="0.3298969" />
-      <window_info anchor="right" id="Database" order="4" />
+      <window_info anchor="right" id="Database" order="4" weight="0.32911393" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -270,16 +299,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/test_01.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1035">
-          <caret column="8" selection-start-column="8" selection-end-column="8" />
-          <folding>
-            <element signature="e#24#42#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test_02.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1301">
@@ -287,39 +306,36 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///anaconda2/envs/py36/lib/python3.6/site-packages/sklearn/neighbors/classification.py">
+    <entry file="file:///anaconda2/envs/py36/lib/python3.6/site-packages/sklearn/neighbors/classification.py" />
+    <entry file="file://$PROJECT_DIR$/test_01.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2261">
-          <caret line="119" column="8" selection-start-line="119" selection-start-column="8" selection-end-line="119" selection-end-column="8" />
-          <folding>
-            <element signature="e#391#409#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test_03.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="246">
-          <caret line="137" column="30" selection-start-line="137" selection-start-column="30" selection-end-line="137" selection-end-column="30" />
-          <folding>
-            <element signature="e#15#26#0" expanded="true" />
-            <element signature="e#2471#2477#0" />
-            <marker date="1544614423515" expanded="true" signature="438:443" ph="..." />
-            <marker date="1544614423515" expanded="true" signature="851:2977" ph="..." />
-          </folding>
+        <state>
+          <caret column="8" selection-start-column="8" selection-end-column="8" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/test_04.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="407">
-          <caret line="169" column="16" selection-start-line="169" selection-start-column="16" selection-end-line="169" selection-end-column="16" />
+        <state relative-caret-position="2888">
+          <caret line="158" column="23" selection-start-line="158" selection-start-column="23" selection-end-line="158" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_03.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2090">
+          <caret line="120" column="10" lean-forward="true" selection-start-line="120" selection-start-column="10" selection-end-line="120" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test_05.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
           <folding>
-            <element signature="e#14#32#0" expanded="true" />
-            <marker date="1544634034046" expanded="true" signature="717:722" ph="..." />
-            <marker date="1544634034046" expanded="true" signature="922:927" ph="..." />
-            <marker date="1544634034046" expanded="false" signature="2101:2784" ph="..." />
-            <marker date="1544634034046" expanded="true" signature="4229:5839" ph="..." />
+            <element signature="e#12#30#0" expanded="true" />
+            <marker date="1545126420941" expanded="true" signature="247:252" ph="..." />
+            <marker date="1545126420941" expanded="true" signature="660:672" ph="..." />
           </folding>
         </state>
       </provider>
