@@ -15,7 +15,7 @@
     <SUITE FILE_PATH="coverage/MachineLearning$test_03.coverage" NAME="test_03 Coverage Results" MODIFIED="1544614423522" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MachineLearning$test_05.coverage" NAME="test_05 Coverage Results" MODIFIED="1545228722150" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/MachineLearning$test_01.coverage" NAME="test_01 Coverage Results" MODIFIED="1544370102221" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/MachineLearning$test_08.coverage" NAME="test_08 Coverage Results" MODIFIED="1545293052632" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/MachineLearning$test_08.coverage" NAME="test_08 Coverage Results" MODIFIED="1545293552791" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -57,41 +57,27 @@
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="1" />
-          <entry key="py" value="17749" />
+          <entry key="py" value="17796" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="PLAIN_TEXT" value="1" />
-          <entry key="Python" value="17749" />
+          <entry key="Python" value="17796" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="375">
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/test_05.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="191">
-              <caret line="101" column="41" selection-start-line="101" selection-start-column="24" selection-end-line="101" selection-end-column="41" />
-              <folding>
-                <element signature="e#12#30#0" expanded="true" />
-                <marker date="1545228722142" expanded="true" signature="378:383" ph="..." />
-                <marker date="1545228722142" expanded="true" signature="791:2805" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test_08.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="38">
-              <caret line="2" column="19" lean-forward="true" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+            <state relative-caret-position="31">
+              <caret line="244" column="31" selection-start-line="244" selection-start-column="31" selection-end-line="244" selection-end-column="31" />
               <folding>
-                <element signature="e#7500#7520#0" />
-                <marker date="1545293072932" expanded="true" signature="7559:12499" ph="..." />
+                <element signature="e#12#30#0" expanded="true" />
+                <marker date="1545293552782" expanded="true" signature="7719:7723" ph="..." />
               </folding>
             </state>
           </provider>
@@ -130,8 +116,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="543" />
-    <option name="y" value="165" />
+    <option name="x" value="619" />
+    <option name="y" value="106" />
     <option name="width" value="1158" />
     <option name="height" value="797" />
   </component>
@@ -306,7 +292,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="543" y="165" width="1158" height="797" extended-state="0" />
+    <frame x="619" y="106" width="1158" height="797" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" weight="0.24864376" />
@@ -384,8 +370,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test_05.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="191">
-          <caret line="101" column="41" selection-start-line="101" selection-start-column="24" selection-end-line="101" selection-end-column="41" />
+        <state relative-caret-position="-1280">
+          <caret line="29" column="3" lean-forward="true" selection-start-line="29" selection-start-column="3" selection-end-line="29" selection-end-column="3" />
           <folding>
             <element signature="e#12#30#0" expanded="true" />
             <marker date="1545228722142" expanded="true" signature="378:383" ph="..." />
@@ -396,11 +382,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/test_08.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="38">
-          <caret line="2" column="19" lean-forward="true" selection-start-line="2" selection-start-column="19" selection-end-line="2" selection-end-column="19" />
+        <state relative-caret-position="31">
+          <caret line="244" column="31" selection-start-line="244" selection-start-column="31" selection-end-line="244" selection-end-column="31" />
           <folding>
-            <element signature="e#7500#7520#0" />
-            <marker date="1545293072932" expanded="true" signature="7559:12499" ph="..." />
+            <element signature="e#12#30#0" expanded="true" />
+            <marker date="1545293552782" expanded="true" signature="7719:7723" ph="..." />
           </folding>
         </state>
       </provider>
