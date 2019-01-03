@@ -241,9 +241,9 @@ if __name__ == "__main__":
     inputs,labels = create_data()
     x_train,x_test,y_train,y_test = train_test_split(inputs,labels,test_size=0.25)
 
-    plt.scatter(inputs[:50, 0], inputs[:50, 1], label='0')
-    plt.scatter(inputs[50:100, 0], inputs[50:100, 1], label='1')
-    plt.legend()
+    # plt.scatter(inputs[:50, 0], inputs[:50, 1], label='0')
+    # plt.scatter(inputs[50:100, 0], inputs[50:100, 1], label='1')
+    # plt.legend()
     # plt.show()
 
     svm = SVM_SMO(max_iter=200)
