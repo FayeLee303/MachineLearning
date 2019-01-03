@@ -2,11 +2,9 @@
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
-from matplotlib.colors import ListedColormap
 
 import random
 import math
-from collections import Counter
 
 from sklearn.datasets import load_iris
 
@@ -82,14 +80,19 @@ class LVQ(object):
             nearest_index = distances.index(nearest_distance)  # 下标
             nearest_vector = vectors[nearest_index]  # 最近的向量
             set_label = set_labels[nearest_index]   # 最近的向量对应的预设标签
+
             new_vector = None
             # 学习
             if set_label == yj:
+                # print('+')
                 new_vector = nearest_vector + self.learning_rate * (xj - nearest_vector)
             else:
+                # print('-')
                 new_vector = nearest_vector - self.learning_rate * (xj - nearest_vector)
+            # print('new vector',new_vector)
             vectors[nearest_index] = new_vector # 更新向量
 
+        print('vectors',vectors)
         return vectors
 
     # 根据得到的原型向量进行分类
@@ -113,16 +116,27 @@ class LVQ(object):
 
             clusters[nearest_index].append(X[j])  # 分簇
 
+        # print('clusters',clusters)
+
         # 显示
-        self.show(clusters)
+        self.show_vectors(vectors)
+        self.show_result(clusters)
+
+    # 显示原型向量，就是中心点
+    def show_vectors(self,vectors):
+        colors = ['red', 'green', 'blue', 'yellow','pink', 'orange',  'purple']
+        for i in range(vectors.shape[0]):
+            plt.scatter(vectors[i, 0], vectors[i, 1], c=colors[i], marker='*')
 
     # 显示分簇的结果
-    def show(self,clusters):
+    def show_result(self,clusters):
         k = len(clusters)
-        colors = ['red','green','blue','yellow','orange','pink','purple']
+        colors = ['red','green','blue','yellow','pink','orange','purple']
         for i in range(k):
             ci = np.array(clusters[i])
-            plt.scatter(ci[:, 0], ci[:, 1], c=colors[i], label='cluster_%d'%i)
+            print(ci.shape)
+            if ci != []:
+                plt.scatter(ci[:, 0], ci[:, 1], c=colors[i], label='cluster')
 
         plt.title('clustering')
         plt.legend()
@@ -130,6 +144,10 @@ class LVQ(object):
 
 if __name__ == "__main__":
     X,labels = create_data()
-    model = LVQ(learning_rate=0.1)
-    model.clustering(X,labels,3,[0,1,2],200)
+    inputs_sepal = X[:, :2]
+    inputs_petal = X[:, 2:4]
+
+    model = LVQ(learning_rate=0.05)
+
+    model.clustering(inputs_petal,labels,5,[0.0,1.0,2.0,3.0,4.0,5.0],1000)
     plt.show()
