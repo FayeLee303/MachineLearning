@@ -6,7 +6,6 @@ from matplotlib.colors import ListedColormap
 
 import random
 import math
-from collections import Counter
 
 from sklearn.datasets import load_iris
 from sklearn.neighbors import KNeighborsClassifier
@@ -127,6 +126,7 @@ def show_petal_boundary(inputs,labels):
             计算样本点xj和k个中心点的距离
             根据距离最近的确定xj的簇标记
             将xj分到相应的簇里
+            注意要把Xj从原来的簇里删掉！！！！
         for i in range(k):
             计算新的中心点（均值向量）
             如果 发生变化就更新
@@ -140,55 +140,91 @@ class KMeans(object):
 
     # 距离度量
     def distance(self, x1, x2):
-        # return np.linalg.norm(x1-x2,ord=2) # 二范数欧氏距离
         return math.sqrt(sum(pow(x1 - x2, 2)))
 
-
-
     # 初始化簇集合
-    def init_clusters(self):
+    def init_clusters(self,X):
+        # 初始化空的簇集合
         clusters = {}
         for i in range(self.k):
             clusters[i] = []
+
+        m = X.shape[0]
+        # 第一次分簇
+        for j in range(m):
+            distances = []
+            # 计算样本点xj和所有中心点的距离
+            for i in range(self.k):
+                distances.append(self.distance(X[j], self.centers[i]))  # 计算距离
+            nearest_distance = np.min(distances)  # 最近的距离
+            nearest_index = distances.index(nearest_distance)  # 是第几个
+            # 给xj标记属于哪个簇
+            X[j] = list(X[j])
+            # X[j].append(nearest_index)
+            clusters[nearest_index].append(X[j])  # 分簇
         return clusters
 
     # 随机产生初始中心点
     def init_center(self, X):
         m,n = X.shape # m个样本，每个样本n维
         centers = np.zeros((self.k,n))
-        temp = []
+
         for i in range(self.k):
-            index = random.randint(0,m-1)
-            if len(temp) == 0:
-                temp.append(index)
-                centers[i] = X[index]
-            else:
-                # 如果有重复的点就重新抽
-                while index in temp:
-                    index = random.randint(0, m - 1)
-                temp.append(index)
-                centers[i] = X[index]
+            index = random.randint(0, m - 1)
+            centers[i] = X[index]
+        # temp = []
+        # for i in range(self.k):
+        #     index = random.randint(0,m-1)
+        #     if len(temp) == 0:
+        #         temp.append(index)
+        #         centers[i] = X[index]
+        #     else:
+        #         # 如果有重复的点就重新抽
+        #         while index in temp:
+        #             index = random.randint(0, m - 1)
+        #         temp.append(index)
+        #         centers[i] = X[index]
         return centers
 
     # 求簇的中心点
-    def new_center(self, list):
-        array = np.array(list)
-        return np.mean(array)
+    def new_center(self, cluster):
+        cluster = np.array(cluster)
+        return np.mean(cluster)
 
     # 分簇
-    def clustering(self,X,centers):
-        m,n = X.shape # m个样本，每个样本n维,
-        for j in range(m):
-            distances = []
-            # 计算样本点xj和所有中心点的距离
-            for i in range(self.k):
-                distances.append(self.distance(X[j],centers[i]))   # 计算距离
-
-            nearest_distance = np.min(distances)  # 最近的距离
-            nearest_index = distances.index(nearest_distance)  # 是第几个
-
-            self.clusters[nearest_index].append(X[j])  # 分簇
-
+    def clustering(self,centers,):
+        # 用栈
+        # for c in range(self.k):
+        #     cluster = self.clusters[c]  # 当前簇
+        #     # X = np.array(cluster)
+        #     for j in range(len(cluster)-1):
+        #         # 对每个簇的元素做遍历，如果有离更近的簇就分过去，否则就留下
+        #         distances = []
+        #         for i in range(self.k):
+        #             distances.append(self.distance(cluster[j], centers[i]))  # 计算距离
+        #         nearest_distance = np.min(distances)  # 最近的距离
+        #         nearest_index = distances.index(nearest_distance)  # 是第几个簇
+        #         if nearest_index == c:
+        #             # 如果是当前簇就不做处理
+        #             continue
+        #         else:
+        #             # 加到新簇里
+        #             self.clusters[nearest_index].append(cluster[j])  # 分簇
+        #             # 并把当前簇的这个样本点删掉
+        #             # for x in self.clusters[c]:
+        #             #     if (x==np.array(X[j])).all():
+        #             #         self.clusters[c].remove(x)
+        #             # print(self.clusters[c])
+        #             # print(X[j])
+        #             # print(X[j].all())
+        #             # print(type(X[j]))
+        #             # print(self.clusters[c].index(X[j].all()))
+        #             # TODO
+        #             # self.clusters[c].remove(X[j].all())
+        #             # self.clusters[c].remove(X[j].all())
+        #             # del (self.clusters[c])[j]
+        #             print(type(cluster[j]))
+        #             self.clusters[c].remove(cluster[j].all())
         return self.clusters
 
     # 更新中心点
@@ -202,19 +238,14 @@ class KMeans(object):
 
     # 训练
     def fit(self,X):
-        self.clusters = model.init_clusters() # 初始分簇
         self.centers = self.init_center(X)  # 初始中心点
-        loop = 0
+        self.clusters = self.init_clusters(X) # 初始分簇
         flag = False
         while flag == False:
-            loop += 1
-            # 分簇
-            self.clustering(X,self.centers)
             # 更新
             new_centers = self.update_centers()
-
-            # print('new_center',new_centers)
-            # print('center', self.centers)
+            # 分簇
+            self.clustering(self.centers)
 
             # 中心点没变，表示已经分完簇了
             if (new_centers == self.centers).all():
@@ -224,36 +255,29 @@ class KMeans(object):
                 # 否则用新的中心点开始下一轮
                 self.centers = new_centers
 
+        # 显示
+        self.show_result(self.clusters)
+        self.show_vectors(self.centers)
         return self.clusters
 
-    # 预测
-    # 根据已经训练好的中心点，计算样本点和中心点的距离，进行分类
-    # def predict(self,data):
-    #     #
+    # 显示原型向量，就是中心点
+    def show_vectors(self, vectors):
+        colors = ['red', 'green', 'blue', 'yellow', 'pink', 'orange', 'purple']
+        for i in range(vectors.shape[0]):
+            plt.scatter(vectors[i, 0], vectors[i, 1], c=colors[i], marker='*')
 
     # 显示分簇的结果
-    def show(self):
-        c0 = np.array(self.clusters[0])
-        c1 = np.array(self.clusters[1])
-        c2 = np.array(self.clusters[2])
-        plt.scatter(c0[:, 0], c0[:, 1], c='red', label='cluster_1')
-        plt.scatter(c1[:, 0], c1[:, 1], c='green', label='cluster_2')
-        plt.scatter(c2[:, 0], c2[:, 1], c='blue', label='cluster_3')
+    def show_result(self, clusters):
+        k = len(clusters)
+        colors = ['red', 'green', 'blue', 'yellow', 'pink', 'orange', 'purple']
+        for i in range(k):
+            ci = np.array(clusters[i])
+            print(ci.shape)
+            if ci != []:
+                plt.scatter(ci[:, 0], ci[:, 1], c=colors[i], label='cluster%d'%i)
 
-        plt.title('clustering')
+        plt.title('FCM clustering')
         plt.legend()
-        # plt.show()
-
-    # 预测
-    # def predict(self,data):
-    #     data = np.array(data)
-    #     result = np.zeros((data.shape[0],1))
-    #     for j in range(data.shape[0]):
-    #         distances = []
-    #         for i in range(self.k):
-    #             distances.append(self.distance(data[j], self.centers[i]))
-    #         nearest_distance = np.min(distances)  # 最近的距离
-    #         nearest_index = distances.index(nearest_distance)  # 是第几个
 
 if __name__ == "__main__":
     inputs, labels = create_data()
@@ -262,21 +286,22 @@ if __name__ == "__main__":
 
     model = KMeans(3)
 
-    fig_1 = plt.figure()
-    plt.subplot(121)
-    show_iris_sepal(inputs)
-    plt.subplot(122)
     clusters = model.fit(inputs_sepal)
-    model.show()
+    # clusters = model.fit(inputs_petal)
     plt.show()
 
-    fig_2 = plt.figure()
-    plt.subplot(121)
-    show_iris_petal(inputs)
-    plt.subplot(122)
-    clusters = model.fit(inputs_petal)
-    model.show()
-    plt.show()
+    # a = [np.array([1,2]),[3,4]]
+    # print(a)
+    # print(type(a))
+    # print(type(a[0]))
+    #
+    # # a.remove(a[0])
+    # # a.remove(np.array([1,2]).all())
+    # # print(a.index(np.array([1,2])))
+    # for aa in a:
+    #     if (aa == np.array([1,2])).all():
+    #         a.remove(aa)
+    # print(a)
 
     # a = np.array([1,2,3])
     # b = np.array([4,5,6])

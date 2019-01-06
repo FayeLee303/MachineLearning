@@ -20,19 +20,15 @@ def create_data():
 
 """
 输入 数据集D m个样本，n维，无监督，不需要标签
-    聚类簇数k, 迭代次数b=0,精度e
+    聚类簇数k, 迭代次数
 输出 软划分矩阵U
     一组原型向量{p1...pk}，pi是个n维向量，其实就是每个簇的中心点
 过程
     随机初始化软划分矩阵U，每个元素在0到1之间，每一列之和等于1
     初始化一组聚类原型向量
-    重复
-        计算划分矩阵U
+    重复直到达到停止停止条件
         计算原型向量P
-        如果|pb -pb+1| < e
-            停止，并输出U和P
-        否则
-            b+=1   
+        计算划分矩阵U       
 """
 class FCM(object):
     def __init__(self,q=2):
@@ -146,6 +142,10 @@ class FCM(object):
         self.show_vectors(P)
         self.show_result(clusters)
 
+        # 指标
+        print('DBI',self.calculate_DBI(k,clusters,P))
+        print('DI',self.calculate_DI(k,clusters))
+
     # 显示原型向量，就是中心点
     def show_vectors(self, vectors):
         colors = ['red', 'green', 'blue', 'yellow', 'pink', 'orange', 'purple']
@@ -160,21 +160,88 @@ class FCM(object):
             ci = np.array(clusters[i])
             print(ci.shape)
             if ci != []:
-                plt.scatter(ci[:, 0], ci[:, 1], c=colors[i], label='cluster')
+                plt.scatter(ci[:, 0], ci[:, 1], c=colors[i], label='cluster%d'%i)
 
         plt.title('FCM clustering')
         plt.legend()
 
+    # 计算簇间样本的平均距离
+    def calculate_avg(self,cluster):
+        X = np.array(cluster)
+        m,n = X.shape   # m是该簇里的样本个数
+        dist = np.zeros((m,m))  # 距离矩阵
+        for i in range(m):
+            for j in range(m):
+                dist[i,j] = self.distance(X[i],X[j])
+        sum = np.sum(dist)
+        return 2/(m*(m-1)) * sum
+
+    # 计算簇内样本的最远距离
+    def calculate_diam(self,cluster):
+        X = np.array(cluster)
+        m, n = X.shape
+        dist = np.zeros((m, m))  # 距离矩阵
+        for i in range(m):
+            for j in range(m):
+                dist[i, j] = self.distance(X[i], X[j])
+        return np.max(dist)
+
+    # 计算簇Ci和簇Cj的最近样本（边缘）的距离
+    def calculate_dmin(self,cluster_1,cluster_2):
+        X1 = np.array(cluster_1)
+        X2 = np.array(cluster_2)
+        # m1是簇1的样本个数，m2是簇2的样本个数
+        m1,m2 = X1.shape[0],X2.shape[0]
+        dist = np.zeros((m1,m2))  # 距离矩阵
+        for i in range(m1):
+            for j in range(m2):
+                dist[i, j] = self.distance(X1[i], X2[j])
+        return np.min(dist)
+
+    # 计算簇Ci和簇Cj的中心点p1p2的距离
+    def calculate_dcen(self,i,j,P):
+        return self.distance(P[i],P[j])
+
+    # 计算DBI
+    def calculate_DBI(self,k,clusters,P):
+        temp1 = np.zeros((1, k))
+        for i in range(k):
+            temp2 = np.zeros((1, k))
+            for j in range(k):
+                if j==i:    # 算簇间中心点的距离dcen所以i=j时跳过
+                    continue
+                else:
+                    temp2[:,j]  = (self.calculate_avg(clusters[i])+
+                                   self.calculate_avg(clusters[j]))/\
+                                  self.calculate_dcen(i,j,P)
+            temp1[:,i] = np.max(temp2)
+        sum = np.sum(temp1)
+        return 1/k * sum
+
+    # 计算DI
+    def calculate_DI(self,k,clusters):
+        temp1 = np.zeros((1, k))
+        for i in range(k):
+            # temp2 = np.zeros((1, k))
+            temp2 = np.ones((1,k))  # 因为下面要求最小，如果初始化是0，就会都变成0
+            for j in range(k):
+                temp3 = np.zeros((1, k))
+                for l in range(k):
+                    temp3[:,l] = self.calculate_diam(clusters[l])
+                if j == i:  # 算簇间dmin所以i=j时跳过
+                    continue
+                else:
+                    temp2[:,j] = self.calculate_dmin(clusters[i],clusters[j]) / np.max(temp3)
+            temp1[:,i] = np.min(temp2)
+        return np.min(temp1)
 
 if __name__ == "__main__":
     X,labels = create_data()
     inputs_sepal = X[:, :2]
     inputs_petal = X[:, 2:4]
-    model = FCM()
-    model.clustering(inputs_sepal,3)
-    plt.show()
-    # model.train(inputs_sepal,3)
-    # model.init_divide_matrix(3,4)
+    model = FCM(q=2)
+    model.clustering(X,3,max_iter=200)
+    # plt.show()
 
 
 

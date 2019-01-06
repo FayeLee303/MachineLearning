@@ -36,7 +36,7 @@ def create_data():
     直到满足停止条件
 """
 class LVQ(object):
-    def __init__(self,learning_rate=0.1):
+    def __init__(self,learning_rate=0.01):
         self.model = None
         self.learning_rate = learning_rate
 
@@ -46,7 +46,12 @@ class LVQ(object):
 
     # 初始化原型向量
     def init_vectors(self,k,n):
-        vectors = np.zeros((k,n))
+        # vectors = np.zeros((k,n))
+        # vectors = np.random.rand(k,n)+3
+        # vectors = np.random.randint(0,6,(k, n))
+        vectors = np.ones((k,n))*3
+        # vectors = np.random.random_sample((k,n))*3
+        print('init vectors',vectors)
         return vectors
 
     # 随机选择样本点，返回index就行了
@@ -89,9 +94,13 @@ class LVQ(object):
             else:
                 # print('-')
                 new_vector = nearest_vector - self.learning_rate * (xj - nearest_vector)
-            # print('new vector',new_vector)
             vectors[nearest_index] = new_vector # 更新向量
 
+            # if temp in [1,2,3,4]:
+            #     print('xj',xj,'yj',yj)
+            #     print('nearest_vector',nearest_vector,'set_label',set_label)
+            #     print('new vector', new_vector)
+            #     print('vectors', vectors)
         print('vectors',vectors)
         return vectors
 
@@ -122,6 +131,10 @@ class LVQ(object):
         self.show_vectors(vectors)
         self.show_result(clusters)
 
+        # 指标
+        print('DBI', self.calculate_DBI(k, clusters, vectors))
+        print('DI', self.calculate_DI(k, clusters))
+
     # 显示原型向量，就是中心点
     def show_vectors(self,vectors):
         colors = ['red', 'green', 'blue', 'yellow','pink', 'orange',  'purple']
@@ -136,18 +149,94 @@ class LVQ(object):
             ci = np.array(clusters[i])
             print(ci.shape)
             if ci != []:
-                plt.scatter(ci[:, 0], ci[:, 1], c=colors[i], label='cluster')
+                plt.scatter(ci[:, 0], ci[:, 1], c=colors[i], label='cluster%d'%i)
 
         plt.title('clustering')
         plt.legend()
         # plt.show()
+
+    # 计算簇间样本的平均距离
+    def calculate_avg(self, cluster):
+        X = np.array(cluster)
+        m, n = X.shape  # m是该簇里的样本个数
+        dist = np.zeros((m, m))  # 距离矩阵
+        for i in range(m):
+            for j in range(m):
+                dist[i, j] = self.distance(X[i], X[j])
+        sum = np.sum(dist)
+        return 2 / (m * (m - 1)) * sum
+
+    # 计算簇内样本的最远距离
+    def calculate_diam(self, cluster):
+        X = np.array(cluster)
+        m, n = X.shape
+        dist = np.zeros((m, m))  # 距离矩阵
+        for i in range(m):
+            for j in range(m):
+                dist[i, j] = self.distance(X[i], X[j])
+        return np.max(dist)
+
+    # 计算簇Ci和簇Cj的最近样本（边缘）的距离
+    def calculate_dmin(self, cluster_1, cluster_2):
+        X1 = np.array(cluster_1)
+        X2 = np.array(cluster_2)
+        # m1是簇1的样本个数，m2是簇2的样本个数
+        m1, m2 = X1.shape[0], X2.shape[0]
+        dist = np.zeros((m1, m2))  # 距离矩阵
+        for i in range(m1):
+            for j in range(m2):
+                dist[i, j] = self.distance(X1[i], X2[j])
+        return np.min(dist)
+
+    # 计算簇Ci和簇Cj的中心点p1p2的距离
+    def calculate_dcen(self, i, j, P):
+        return self.distance(P[i], P[j])
+
+    # 计算DBI
+    def calculate_DBI(self, k, clusters, P):
+        temp1 = np.zeros((1, k))
+        for i in range(k):
+            if clusters[i]==[]:
+                continue
+            temp2 = np.zeros((1, k))
+            for j in range(k):
+                if j == i or clusters[j]==[]:  # 算簇间中心点的距离dcen所以i=j时跳过
+                    continue
+                else:
+                    temp2[:, j] = (self.calculate_avg(clusters[i]) +
+                                   self.calculate_avg(clusters[j])) / \
+                                  self.calculate_dcen(i, j, P)
+            temp1[:, i] = np.max(temp2)
+        sum = np.sum(temp1)
+        return 1 / k * sum
+
+    # 计算DI
+    def calculate_DI(self, k, clusters):
+        temp1 = np.ones((1, k))
+        for i in range(k):
+            if clusters[i] == []:
+                continue
+            # temp2 = np.zeros((1, k))
+            temp2 = np.ones((1, k))  # 因为下面要求最小，如果初始化是0，就会都变成0
+            for j in range(k):
+                temp3 = np.ones((1, k))
+                for l in range(k):
+                    if clusters[l] == []:
+                        continue
+                    temp3[:, l] = self.calculate_diam(clusters[l])
+                if j == i or clusters[j] == []:  # 算簇间dmin所以i=j时跳过
+                    continue
+                else:
+                    temp2[:, j] = self.calculate_dmin(clusters[i], clusters[j]) / np.max(temp3)
+            temp1[:, i] = np.min(temp2)
+        return np.min(temp1)
 
 if __name__ == "__main__":
     X,labels = create_data()
     inputs_sepal = X[:, :2]
     inputs_petal = X[:, 2:4]
 
-    model = LVQ(learning_rate=0.05)
+    model = LVQ(learning_rate=0.005)
 
-    model.clustering(inputs_petal,labels,5,[0.0,1.0,2.0,3.0,4.0,5.0],1000)
-    plt.show()
+    model.clustering(X,labels,3,[0.0,1.0,2.0],500)
+    # plt.show()
